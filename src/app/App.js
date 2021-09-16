@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import List from './../components/list/List';
 import Alert from './../components/alert/Alert';
 
@@ -14,7 +14,7 @@ const getLocalStorage = () => {
 function App() {
 	//**************** variables ****************//
 	const [name, setName] = useState('');
-	const [list, setList] = useState([]);
+	const [list, setList] = useState(getLocalStorage());
 	const [isEditing, setIsEditing] = useState(false);
 	const [editId, setEditId] = useState(null);
 	const [alert, setAlert] = useState({ show: false, msg: '', type:'' });
@@ -33,9 +33,9 @@ function App() {
 	const editItem = id => {
 		const specificItem = list.find(item => item.id === id);
 		setIsEditing(true);
-    showAlert(true, 'caution', 'editing item!');
 		setEditId(id);
 		setName(specificItem.title);
+    showAlert(true, 'caution', 'editing item!');
 	};
 	const handleSubmit = e => {
     e.preventDefault();
@@ -62,6 +62,10 @@ function App() {
 			setName('');
 		}
 	};
+
+    useEffect(() => {
+			localStorage.setItem('list', JSON.stringify(list));
+		}, [list]);
 	return (
 		<section className='section-center'>
 			<form className='grocery-form' onSubmit={handleSubmit}>

@@ -58,6 +58,8 @@
 	--clr-green-dark: hsl(125, 67%, 44%);
 	--clr-green-light: hsl(125, 71%, 66%);
   --clr-gold: hsl(40.09, 100%, 53.92%);
+  --clr-light-gold: hsl(40, 100%, 72.35%);
+  --clr-dark-gold: hsl(40, 81%, 40%);
 	--clr-black: #222;
 	--transition: all 0.3s linear;
 	--spacing: 0.1rem;
@@ -299,15 +301,18 @@ main {
 	background: transparent;
 	border-color: transparent;
 	cursor: pointer;
-	font-size: 0.7rem;
+	font-size: 1rem;
 	margin: 0 0.15rem;
 	transition: var(--transition);
 }
 .edit-btn {
 	color: var(--clr-green-light);
+	color: var(--clr-gold);
 }
 .edit-btn:hover {
-	color: var(--clr-green-dark);
+	color: var(--clr-green-dark);  
+  color: var(--clr-dark-gold);
+
 }
 .delete-btn {
 	color: var(--clr-red-light);
