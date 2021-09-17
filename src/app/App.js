@@ -17,7 +17,7 @@ function App() {
 	const [list, setList] = useState(getLocalStorage());
 	const [isEditing, setIsEditing] = useState(false);
 	const [editId, setEditId] = useState(null);
-	const [alert, setAlert] = useState({ show: false, msg: '', type:'' });
+	const [alert, setAlert] = useState({ show: false, msg: '', type: '' });
 	//**************** functions ****************//
 	const showAlert = (show = false, type = '', msg = '') => {
 		setAlert({ show, type, msg });
@@ -35,10 +35,10 @@ function App() {
 		setIsEditing(true);
 		setEditId(id);
 		setName(specificItem.title);
-    showAlert(true, 'caution', 'editing item!');
+		showAlert(true, 'caution', 'editing item!');
 	};
 	const handleSubmit = e => {
-    e.preventDefault();
+		e.preventDefault();
 		if (!name) {
 			showAlert(true, 'danger', 'enter an item!');
 		} else if (name && isEditing) {
@@ -63,9 +63,9 @@ function App() {
 		}
 	};
 
-    useEffect(() => {
-			localStorage.setItem('list', JSON.stringify(list));
-		}, [list]);
+	useEffect(() => {
+		localStorage.setItem('list', JSON.stringify(list));
+	}, [list]);
 	return (
 		<section className='section-center'>
 			<form className='grocery-form' onSubmit={handleSubmit}>
@@ -79,6 +79,7 @@ function App() {
 						type='text'
 						className='grocery'
 						placeholder='e.g. eggs'
+						maxLength='18'
 						value={name}
 						onChange={e => setName(e.target.value)}
 					/>
