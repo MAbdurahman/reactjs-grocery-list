@@ -57,9 +57,9 @@
 	--clr-red-light: hsl(360, 71%, 66%);
 	--clr-green-dark: hsl(125, 67%, 44%);
 	--clr-green-light: hsl(125, 71%, 66%);
-  --clr-gold: hsl(40.09, 100%, 53.92%);
-  --clr-light-gold: hsl(40, 100%, 72.35%);
-  --clr-dark-gold: hsl(40, 81%, 40%);
+	--clr-gold: hsl(40.09, 100%, 53.92%);
+	--clr-light-gold: hsl(40, 100%, 72.35%);
+	--clr-dark-gold: hsl(40, 81%, 40%);
 	--clr-black: #222;
 	--transition: all 0.3s linear;
 	--spacing: 0.1rem;
@@ -179,7 +179,7 @@ main {
 }
 
 /*=============================================
-          Grocery List
+         Grocery List
 ================================================*/
 .section-center {
 	background: var(--clr-white);
@@ -205,7 +205,7 @@ main {
 }
 .alert-caution {
 	color: #fff;
-  background: var(--clr-gold);
+	background: var(--clr-gold);
 	-webkit-animation: scale-in-center 0.333s
 		cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
 	animation: scale-in-center 0.333s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
@@ -310,9 +310,8 @@ main {
 	color: var(--clr-gold);
 }
 .edit-btn:hover {
-	color: var(--clr-green-dark);  
-  color: var(--clr-dark-gold);
-
+	color: var(--clr-green-dark);
+	color: var(--clr-dark-gold);
 }
 .delete-btn {
 	color: var(--clr-red-light);
@@ -338,6 +337,42 @@ main {
 }
 .clear-btn:hover {
 	color: var(--clr-red-dark);
+}
+
+
+/*mobile portrait layout (375px or less) */
+@media only screen and (max-width: 375px) {
+   /*...mobile portrait styles */
+	section.section-center {
+		margin-top: 2em;
+		margin-left: auto;
+		margin-right: auto;
+		padding-left: 0;
+		padding-right: 0;
+	}
+div.form-control {
+		width: 230px;
+		align-items: center;
+		margin-right: -1em;
+	}
+	input.grocery {
+		width: 180;
+		margin-left: 3em;
+	}
+	.submit-btn {
+		flex: 0 0 1rem;
+		margin-right: -1em;
+		letter-spacing: 1px;
+		border-width: 1px;
+	}
+	.alert, .alert-danger {
+		margin-right: auto;
+		margin-left: auto;
+	
+	}
+	p.alert, p.alert-danger {
+		text-align: center;
+	}
 }
 
 /* ----------------------------------------------
@@ -375,7 +410,7 @@ main {
 		transform: scale(0);
 		opacity: 0;
 	}
-  80% {
+	80% {
 		-webkit-transform: scale(1.125);
 		transform: scale(1.125);
 		opacity: 1;
